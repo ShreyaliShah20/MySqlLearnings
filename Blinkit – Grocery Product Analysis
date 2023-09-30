@@ -1,0 +1,164 @@
+use blinkit;
+show tables;
+
+create table Grocery_sales
+select * from blinkit;
+select * from Grocery_sales;
+
+select distinct(Item_Fat_Content) from grocery_sales;
+
+#2nd
+select item_identifier from grocery_sales;
+
+#3rd-Write an SQL query to show count of total Item_Identifier.
+select count(item_Identifier) from grocery_sales;
+
+#4th-Write an SQL query to show maximum Item Weight. 
+select max(item_weight) from grocery_sales;
+
+#item_type having maximum Item_Weight 
+select item_type from grocery_sales where Item_Weight=21.35
+
+#5. Write an SQL query to show minimum Item Weight. 
+select min(item_weight) from grocery_sales;
+
+#6th-Write an SQL query to show average Item_Weight. 
+select avg(item_weight) from grocery_sales;
+
+#7th-Write an SQL query to show count of Item_Fat_Content WHERE Item_Fat_Content is Low Fat. 
+select count(Item_Fat_Content) from grocery_sales where Item_Fat_Content in("Low Fat","LF");
+
+
+#8th-Write an SQL query to show count of Item_Fat_Content WHERE Item_Fat_Content is Regular. 
+select count(Item_Fat_Content) from grocery_sales where Item_Fat_Content in("Regular","reg");
+
+#9th-Write an SQL query to show maximum Item_MRP
+select max(Item_MRP) from grocery_sales;
+
+#10th-Write an SQL query to show minimum Item_MRP 
+select min(Item_MRP) from grocery_sales;
+
+#11th-Write an SQL query to show Item_Identifier , Item_Fat_Content,Item_Type, Item_MRP whose Item_MRP is greater than 200. 
+select Item_Identifier , Item_Fat_Content,Item_Type, Item_MRP from grocery_sales 
+where Item_MRP>200;
+
+#12th-Write an SQL query to show maximum Item_MRP WHERE Item_Fat_Content is Low Fat
+select max(Item_MRP) from grocery_sales where Item_Fat_Content in ("Low Fat","LF");
+
+#13th-Write an SQL query to show minimum Item_MRP whose Item_Fat_Content is Low Fat 
+select min(Item_MRP) from grocery_sales where Item_Fat_Content in ("Low Fat","LF");
+
+#14th-Write an SQL query to show ALL DATA WHERE item MRP is BETWEEN 50 to 100
+select * from grocery_sales where item_MRP between  50 and 100;
+
+#15th- Write an SQL query to show ALL UNIQUE value of Item_Fat_Content
+select distinct (Item_Fat_Content) from grocery_sales;
+
+#16th- Write an SQL query to show ALL UNIQUE value of Item_Type 
+select distinct (Item_Type ) from grocery_sales;
+
+#17th-Write an SQL query to show ALL DATA in descending ORDER by Item MRP 
+select * from grocery_sales order by Item_MRP desc;
+
+#18th-Write an SQL query to show ALL DATA in ascending ORDER by Item_Outlet_Sales 
+select * from grocery_sales  order by Item_Outlet_Sales asc;
+
+#19th-Write an SQL query to show ALL DATA in ascending by Item_Type
+select * from grocery_sales order by item_type asc;
+
+#20th-Write an SQL query to show DATA of item_type dairy & Meat 
+select item_type from grocery_sales where item_type in ("dairy","meat");
+
+#21th-Write an SQL query to show ALL UNIQUE value of Outlet_Size
+select distinct (Outlet_Size) from grocery_sales;
+
+#22th-Write an SQL query to show ALL UNIQUE value of Outlet_Location_Type 
+select distinct (Outlet_Location_Type) from grocery_sales;
+
+#23th-Write an SQL query to show ALL UNIQUE value of Outlet_Type 
+select distinct (Outlet_Type) from grocery_sales;
+
+#24th-Write an SQL query to show count of number of items by 
+#Item_Type and order it in descending order 
+select Item_Type, count(Item_Type) as number_of_items from grocery_sales group by Item_Type order by number_of_items desc;
+
+#25th-Write an SQL query to show count of number of items by Outlet_Size and ordered it in ascending order 
+select Outlet_Size,count(Item_Identifier) as number_of_items from grocery_sales group by Outlet_Size order by number_of_items asc;
+
+#26th-Write an SQL query to show count of number of items by Outlet_Type and ordered it in descending order. 
+select outlet_type, count(Item_Identifier) as number_of_item from grocery_sales group by outlet_type order by number_of_item desc;
+
+#27th-Write an SQL query to show count of items by Outlet_Location_Type and order it in descending order
+select Outlet_Location_Type, count(Item_Identifier) as item from grocery_sales group by Outlet_Location_Type order by item desc;
+
+#28th-Write an SQL query to show maximum MRP by Item_Type 
+select Item_Type, max(Item_MRP) as Max_MRP from grocery_sales group by Item_Type;
+
+#29th-Write an SQL query to show minimum MRP by Item_Type 
+select Item_Type, min(Item_MRP) as Max_MRP from grocery_sales group by Item_Type;
+
+#30th-Write an SQL query to show minimum MRP by Outlet_Establishment_Year and order it in descending order.
+select Outlet_Establishment_Year, min(Item_MRP) as Min_MRP from grocery_sales group by Outlet_Establishment_Year order by Min_MRP desc;
+
+#31st-Write an SQL query to show maximum MRP by Outlet_Establishment_Year and order it in descending order. 
+select Outlet_Establishment_Year, max(Item_MRP) as Max_MRP from grocery_sales group by Outlet_Establishment_Year order by Max_MRP desc;
+
+#32nd-Write an SQL query to show average MRP by Outlet_Size and order it in descending order.
+select Outlet_Size ,avg(Item_MRP)as avg_MRP from grocery_sales group by Outlet_Size order by avg_MRP desc ;
+ 
+#33-Write an SQL query to Average MRP by Outlet_Type and ordered in ascending order.
+select Outlet_Type, avg(Item_MRP)as avg_MRP  from grocery_sales group by Outlet_Type order by avg_MRP asc  ;
+
+#34th-Write an SQL query to show maximum MRP by Outlet_Type
+select Outlet_Type, max(Item_MRP) from grocery_sales group by Outlet_Type;
+
+#35th-Write an SQL query to show maximum Item_Weight by Item_Type
+select Item_Type, max(Item_Weight) from grocery_sales group by Item_Type ;
+
+#36th-Write an SQL query to show maximum Item_Weight by Outlet_Establishment_Year 
+select Outlet_Establishment_Year, max(Item_Weight) from grocery_sales group by Outlet_Establishment_Year;
+ 
+#37th-Write an SQL query to show minimum Item_Weight by Outlet_Type 
+select Outlet_Type, min(Item_Weight) from grocery_sales group by Outlet_Type;
+
+#38th-Write an SQL query to show average Item_Weight by Outlet_Location_Type and arrange it by descending order
+select Outlet_Location_Type, avg(Item_Weight)as avg_weight from grocery_sales group by Outlet_Location_Type order by avg_Weight desc;
+
+#39th-Write an SQL query to show maximum Item_Outlet_Sales by Item_Type
+select Item_Type, max(Item_Outlet_Sales) from grocery_sales group by Item_Type ;
+
+#40th-Write an SQL query to show minimum Item_Outlet_Sales by Item_Type 
+select Item_Type, min(Item_Outlet_Sales) from grocery_sales group by Item_Type ;
+
+#41-Write an SQL query to show minimum Item_Outlet_Sales by Outlet_Establishment_Year 
+select Outlet_Establishment_Year, min(Item_Outlet_Sales) from grocery_sales group by Outlet_Establishment_Year
+
+#42-Write an SQL query to show maximum Item_Outlet_Sales by Outlet_Establishment_Year and order it by descending order
+select Outlet_Establishment_Year,max(Item_Outlet_Sales) as max_outlet_sales from grocery_sales group by Outlet_Establishment_Year order by max_outlet_sales desc ;
+ 
+#43-Write an SQL query to show average Item_Outlet_Sales by Outlet_Size and order it it descending order 
+select Outlet_Size, avg(Item_Outlet_Sales)as avg_outlet_sales from grocery_sales group by Outlet_Size order by avg_outlet_sales desc ;
+
+#44th-Write an SQL query to show average Item_Outlet_Sales by Outlet_Type 
+select Outlet_Type,avg(Item_Outlet_Sales) from grocery_sales group by Outlet_Type;
+
+#45th-Write an SQL query to show maximum Item_Outlet_Sales by Outlet_Type 
+select Outlet_Type,max(Item_Outlet_Sales )  from grocery_sales group by Outlet_Type;
+
+#46th-Write an SQL query to show total Item_Outlet_Sales by Item_Type 
+select Item_Type,sum(Item_Outlet_Sales) from grocery_sales group by Item_Type;
+
+#47th-Write an SQL query to show total Item_Outlet_Sales by Item_Fat_Content 
+select Item_Fat_Content,sum(Item_Outlet_Sales)  from grocery_sales group by Item_Fat_Content;
+
+#48th-Write an SQL query to show maximum Item_Visibility by Item_Type
+select Item_Type,max(Item_Visibility )  from grocery_sales group by Item_Type ;
+
+#49th-Write an SQL query to show Minimum Item_Visibility by Item_Type 
+select Item_Type,min(Item_Visibility )  from grocery_sales group by Item_Type ;
+
+#50th-Write an SQL query to show total Item_Outlet_Sales by Item_Type but only WHERE Outlet_Location_Type is Tier 1 
+select Item_Type,sum(Item_Outlet_Sales)  from grocery_sales where Outlet_Location_Type="Tier 1" group by Item_Type ;
+
+#51-Write an SQL query to show total Item_Outlet_Sales by Item_Type WHERE Item_Fat_Content is ONLY Low Fat & LF 
+select Item_Type,sum(Item_Outlet_Sales) from grocery_sales where Item_Fat_Content='Low Fat' or Item_Fat_Content='LF' group by Item_Type;
